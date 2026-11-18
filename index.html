@@ -56,6 +56,7 @@ function total(){return S.items.reduce((s,i)=>s+(cart[i.id]||0)*i.price,0)}
 function count(){return Object.values(cart).reduce((a,b)=>a+b,0)}
 function theme(){const s=S.settings,r=document.documentElement.style,ac=s.accent||"#ffb300",bg=s.bg||"#14110f";const L=x=>{const n=parseInt(x.slice(1),16);return ((n>>16)*299+((n>>8)&255)*587+(n&255)*114)/1000};const dk=L(bg)<140;r.setProperty("--acc",ac);r.setProperty("--bg",bg);r.setProperty("--fg",dk?"#f5efe6":"#1b1511");r.setProperty("--mut",dk?"#b8a99a":"#6d5f53");r.setProperty("--on",L(ac)<150?"#fff":"#1a1200");r.setProperty("color-scheme",dk?"dark":"light")}
 function render(){
+syncForm();
 theme();
 const sc0=(document.querySelector(".sheet")||{}).scrollTop||0;const offs=S.offers.filter(x=>x.on!==false);
 const st=S.settings,o=isOpen();document.title=st.name||"Street Caffeine";
@@ -79,13 +80,15 @@ function chg(id,d){cart[id]=Math.max(0,(cart[id]||0)+d);if(!cart[id])delete cart
 function cartHtml(){
 const rows=S.items.filter(i=>cart[i.id]).map(i=>`<div class="row"><span>${cart[i.id]} × ${esc(i.name)}</span><span>${money(cart[i.id]*i.price)}</span></div>`).join("");
 return `<div class="ov" onclick="if(event.target===this){cartOpen=false;render()}"><div class="sheet"><h2 style="margin-top:0">Your order</h2>${rows}<div class="row"><b>Total</b><b>${money(total())}</b></div>
-<label>Your name</label><input value="${esc(form.name)}" oninput="form.name=this.value" placeholder="Name">
+<label>Your name</label><input id="cn" value="${esc(form.name)}" oninput="form.name=this.value" onchange="form.name=this.value" placeholder="Name" autocomplete="name">
 <label>Pickup or delivery</label><select onchange="form.mode=this.value;render()"><option ${form.mode==="Pickup"?"selected":""}>Pickup</option><option ${form.mode==="Delivery"?"selected":""}>Delivery</option></select>
-${form.mode==="Delivery"?`<label>Delivery address</label><textarea rows="2" oninput="form.addr=this.value">${esc(form.addr)}</textarea>`:""}
-<label>Notes (optional)</label><input value="${esc(form.note)}" oninput="form.note=this.value" placeholder="Less sugar, no ice...">
+${form.mode==="Delivery"?`<label>Delivery address</label><textarea id="ca" rows="2" oninput="form.addr=this.value" onchange="form.addr=this.value">${esc(form.addr)}</textarea>`:""}
+<label>Notes (optional)</label><input id="cnote" value="${esc(form.note)}" oninput="form.note=this.value" onchange="form.note=this.value" placeholder="Less sugar, no ice...">
 <p style="color:var(--mut);font-size:13px">Tap the button to send your order on WhatsApp. We will confirm and share payment details in the chat.</p>
 <button class="wa" onclick="send()">Order on WhatsApp</button><button class="g" style="width:100%;margin-top:8px" onclick="cartOpen=false;render()">Keep browsing</button></div></div>`}
+function syncForm(){const a=$("#cn"),b=$("#ca"),c=$("#cnote");if(a)form.name=a.value;if(b)form.addr=b.value;if(c)form.note=c.value}
 function send(){
+syncForm();
 if(!form.name.trim()){alert("Please enter your name");return}
 if(form.mode==="Delivery"&&!form.addr.trim()){alert("Please enter your delivery address");return}
 let m=`Hi ${S.settings.name}! New order:\n`;
