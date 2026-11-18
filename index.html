@@ -5,39 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Street Caffeine</title>
 <style>
-:root{--bg:#14110f;--card:#1f1a17;--fg:#f5efe6;--mut:#b8a99a;--acc:#ffb300;--wa:#25d366;--line:#352d27;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45}
-.w{max-width:900px;margin:0 auto;padding:0 16px}
-h1,h2,h3{font-family:Impact,"Arial Narrow Bold",sans-serif;letter-spacing:.04em;margin:0;text-transform:uppercase}
-.hero{text-align:center;padding:44px 0 24px}.hero h1{font-size:clamp(40px,12vw,76px);color:var(--acc);line-height:1}
-.hero p{color:var(--mut);margin:8px 0 14px}
-.pill{display:inline-block;padding:6px 14px;border-radius:99px;font-size:14px;font-weight:600}
-.open{background:#163a22;color:#6be08f}.closed{background:#3d1d1d;color:#ff8f8f}
-.banner{background:var(--acc);color:#1a1200;padding:10px 16px;text-align:center;font-weight:700}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:14px 16px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;scrollbar-width:none}
-.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:8px 14px;border-radius:99px;font-size:14px;text-decoration:none}
-h2{font-size:28px;margin:26px 0 12px;color:var(--acc)}
-.grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;gap:12px;align-items:center}
-.em{font-size:34px;width:72px;height:72px;overflow:hidden;border-radius:12px;background:#2a2320;display:grid;place-items:center;flex:none}
-.inf{flex:1;min-width:0}.inf b{display:block}.inf small{color:var(--mut)}.pr{color:var(--acc);font-weight:700;margin-top:2px}
-button,.btn{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:9px 14px;background:var(--acc);color:#1a1200;font-weight:700;text-decoration:none;display:inline-block}
-button.g{background:#2f2823;color:var(--fg)}button.wa{background:var(--wa);color:#04210f;width:100%;padding:13px;font-size:16px}button.rm{background:#4a2020;color:#ffb3b3}
-button:disabled{opacity:.4}
-.qty{display:flex;align-items:center;gap:8px}.qty button{padding:4px 11px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
-.card h3{font-size:20px;color:var(--fg);margin-bottom:4px}.card p{margin:0;color:var(--mut);white-space:pre-wrap}
-.cartbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;max-width:600px;margin:0 auto}
-.cartbar button{width:100%;padding:14px;font-size:16px;box-shadow:0 6px 24px #000a}
+:root{--bg:#14110f;--acc:#ffb300;--fg:#f5efe6;--mut:#b8a99a;--on:#1a1200;--card:color-mix(in srgb,var(--bg) 90%,var(--fg));--line:color-mix(in srgb,var(--bg) 82%,var(--fg));--wa:#25d366;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:"Avenir Next",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45}
+.w{max-width:960px;margin:0 auto;padding:0 14px}
+.hero{color:#fff;text-align:center;padding:54px 16px 38px;background:radial-gradient(120% 110% at 50% 0,color-mix(in srgb,var(--acc) 55%,#000),var(--bg));background-size:cover;background-position:center;border-radius:0 0 28px 28px}
+.logo{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--acc);margin-bottom:10px;box-shadow:0 8px 28px #0009;background:#000}
+h1{font-family:Impact,"Arial Narrow Bold",sans-serif;font-size:clamp(40px,12vw,72px);line-height:1;margin:0;text-transform:uppercase;letter-spacing:.03em;text-shadow:0 3px 18px #0008}
+.tag{margin:8px 0 14px;font-size:17px;opacity:.92}.bd{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.pill{display:inline-block;padding:6px 14px;border-radius:99px;font-size:13.5px;font-weight:700}.gl{background:#ffffff26;color:#fff;backdrop-filter:blur(6px)}
+.open{background:#1c8c4a;color:#fff}.closed{background:#b3362f;color:#fff}
+.cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.wab{background:var(--wa);color:#04210f}
+.banner{background:var(--acc);color:var(--on);padding:11px 16px;text-align:center;font-weight:800;margin-top:14px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 14px;position:sticky;top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);z-index:5;scrollbar-width:none}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:8px 16px;border-radius:99px;font-size:14px;font-weight:600;text-decoration:none}
+h2{font-size:22px;font-weight:800;margin:30px 0 12px;display:flex;align-items:center;gap:10px}h2:before{content:"";width:5px;height:22px;background:var(--acc);border-radius:3px}
+h3{margin:0 0 4px;font-size:18px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}@media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:900px){.grid{grid-template-columns:repeat(4,1fr)}}
+.item{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 14px #0003}
+.em{aspect-ratio:4/3;display:grid;place-items:center;font-size:52px;background:color-mix(in srgb,var(--acc) 16%,var(--card));overflow:hidden}.em img{width:100%;height:100%;object-fit:cover}
+.inf{padding:10px 12px 0;flex:1;min-width:0}.inf b{display:block;font-size:15px}.inf small{display:block;color:var(--mut);font-size:12.5px;margin-top:2px}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:10px 12px 12px}.pr{color:var(--acc);font-weight:800;font-size:16px}.so{color:#ff8f8f;font-size:12px;font-weight:700}
+button,.btn{font:inherit;cursor:pointer;border:0;border-radius:99px;padding:9px 16px;background:var(--acc);color:var(--on);font-weight:800;text-decoration:none;display:inline-block}
+button.g{background:color-mix(in srgb,var(--bg) 80%,var(--fg));color:var(--fg)}button.wa{background:var(--wa);color:#04210f;width:100%;padding:14px;font-size:16px;border-radius:14px}button.rm{background:#4a2020;color:#ffb3b3}
+.qty{display:flex;align-items:center;gap:8px}.qty button{padding:3px 11px}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--acc);border-radius:16px;padding:14px;margin-bottom:12px}.card p{margin:0;color:var(--mut);white-space:pre-wrap}
+.cartbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;max-width:600px;margin:0 auto}.cartbar button{width:100%;padding:15px;font-size:16px;box-shadow:0 8px 28px #000a}
 .ov{position:fixed;inset:0;background:#000b;z-index:30;display:flex;align-items:flex-end;justify-content:center}
-.sheet{background:var(--bg);width:100%;max-width:640px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px))}
+.sheet{background:var(--bg);color:var(--fg);width:100%;max-width:640px;max-height:92%;overflow:auto;border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px))}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
-input,select,textarea{width:100%;font:inherit;background:#2a2320;color:var(--fg);border:1px solid var(--line);border-radius:9px;padding:9px;margin:4px 0}
+input,select,textarea{width:100%;font:inherit;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:10px;margin:4px 0}
 label{font-size:13px;color:var(--mut)}.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.tabs{display:flex;gap:6px;margin:10px 0;flex-wrap:wrap}.tabs button{background:#2f2823;color:var(--fg)}.tabs button.on{background:var(--acc);color:#1a1200}
+.tabs{display:flex;gap:6px;margin:10px 0;flex-wrap:wrap}.tabs button{background:var(--card);color:var(--fg)}.tabs button.on{background:var(--acc);color:var(--on)}
 .adm{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px;z-index:25}
-footer{text-align:center;color:var(--mut);padding:30px 16px 110px;font-size:14px}footer a{color:var(--acc)}
-.ed{border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:10px}
+footer{text-align:center;color:var(--mut);padding:34px 16px 110px;font-size:14px;line-height:1.8}footer a{color:var(--acc);font-weight:700}footer .logo{width:56px;height:56px}
+.ed{border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -49,24 +50,25 @@ let S=JSON.parse(document.getElementById("data").textContent);
 let IMGS={},PEND={},DEL=[];let cart={},cartOpen=false,admin=false,tab="menu",isAdmin=false,loginOpen=false,loginErr="",form={name:"",mode:"Pickup",addr:"",note:""};
 const $=s=>document.querySelector(s);
 const esc=t=>String(t==null?"":t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const money=n=>CUR+" "+(Math.round(n*100)/100).toFixed(2).replace(/\.00$/,"");
-function isOpen(){const d=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kuala_Lumpur"}));const h=d.getHours(),w=d.getDay();return (h>=19&&w!==3)||(h<1&&w!==4)}
+const money=n=>(S.settings.cur||CUR)+" "+(Math.round(n*100)/100).toFixed(2).replace(/\.00$/,"");
+function isOpen(){const s=S.settings,o=+(s.open??19),c=+(s.close??1),off=s.off===undefined?3:+s.off;const d=new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Kuala_Lumpur"}));const h=d.getHours(),w=d.getDay();if(o>c)return (h>=o&&w!==off)||(h<c&&(w+6)%7!==off);return h>=o&&h<c&&w!==off}
 function total(){return S.items.reduce((s,i)=>s+(cart[i.id]||0)*i.price,0)}
 function count(){return Object.values(cart).reduce((a,b)=>a+b,0)}
+function theme(){const s=S.settings,r=document.documentElement.style,ac=s.accent||"#ffb300",bg=s.bg||"#14110f";const L=x=>{const n=parseInt(x.slice(1),16);return ((n>>16)*299+((n>>8)&255)*587+(n&255)*114)/1000};const dk=L(bg)<140;r.setProperty("--acc",ac);r.setProperty("--bg",bg);r.setProperty("--fg",dk?"#f5efe6":"#1b1511");r.setProperty("--mut",dk?"#b8a99a":"#6d5f53");r.setProperty("--on",L(ac)<150?"#fff":"#1a1200");r.setProperty("color-scheme",dk?"dark":"light")}
 function render(){
+theme();
 const sc0=(document.querySelector(".sheet")||{}).scrollTop||0;const offs=S.offers.filter(x=>x.on!==false);
 const st=S.settings,o=isOpen();document.title=st.name||"Street Caffeine";
-let h=`<div class="hero w"><h1>${esc(st.name)}</h1><p>${esc(st.tagline)}</p><span class="pill ${o?"open":"closed"}">${o?"Open now":"Closed now"}</span> <span class="pill" style="color:var(--mut)">${esc(st.hours)}</span></div>`;
+let h=`<div class="hero" style="${st.hero&&IMGS[st.hero]?`background-image:linear-gradient(#000a,#0006 60%,var(--bg)),url('${IMGS[st.hero]}')`:""}">${st.logo&&IMGS[st.logo]?`<img class="logo" src="${IMGS[st.logo]}" alt="">`:""}<h1>${esc(st.name)}</h1><p class="tag">${esc(st.tagline)}</p><div class="bd">${st.showStatus!==false?`<span class="pill ${o?"open":"closed"}">${o?"Open now":"Closed now"}</span>`:""}<span class="pill gl">${esc(st.hours)}</span></div><div class="cta"><a class="btn" href="#c-0">View menu</a><a class="btn wab" target="_blank" rel="noopener" href="https://wa.me/${esc((st.wa||"").replace(/\D/g,""))}">Chat on WhatsApp</a></div></div>`;
 if(S.banner)h+=`<div class="banner">${esc(S.banner)}</div>`;
 h+=`<div class="chips">${S.cats.map(c=>`<a class="chip" href="#c-${S.cats.indexOf(c)}">${esc(c)}</a>`).join("")}${offs.length?`<a class="chip" href="#offers">Offers</a>`:""}${S.posts.length?`<a class="chip" href="#posts">Recipes & News</a>`:""}</div><div class="w">`;
 if(offs.length)h+=`<h2 id="offers">Offers</h2>`+offs.map(x=>`<div class="card">${x.img&&IMGS[x.img]?`<img src="${IMGS[x.img]}" style="width:100%;max-height:240px;object-fit:cover;border-radius:10px;margin-bottom:8px">`:""}<h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></div>`).join("");
 S.cats.forEach((c,ci)=>{const its=S.items.filter(i=>i.cat===c);if(!its.length)return;
 h+=`<h2 id="c-${ci}">${esc(c)}</h2><div class="grid">`+its.map(i=>{const q=cart[i.id]||0;
-return `<div class="item"><div class="em">${i.img&&IMGS[i.img]?`<img src="${IMGS[i.img]}" style="width:100%;height:100%;object-fit:cover">`:esc(i.emoji||"☕")}</div><div class="inf"><b>${esc(i.name)}</b><small>${esc(i.desc)}</small><div class="pr">${money(i.price)}</div></div>`+
-(i.sold?`<small>Sold out</small>`:q?`<div class="qty"><button class="g" onclick="chg(${i.id},-1)">−</button><b>${q}</b><button onclick="chg(${i.id},1)">+</button></div>`:`<button onclick="chg(${i.id},1)">Add</button>`)+`</div>`}).join("")+`</div>`});
+return `<div class="item"><div class="em">${i.img&&IMGS[i.img]?`<img src="${IMGS[i.img]}" style="width:100%;height:100%;object-fit:cover">`:esc(i.emoji||"☕")}</div><div class="inf"><b>${esc(i.name)}</b><small>${esc(i.desc)}</small></div><div class="ft"><span class="pr">${money(i.price)}</span>`+
+(i.sold?`<span class="so">Sold out</span>`:q?`<div class="qty"><button class="g" onclick="chg(${i.id},-1)">−</button><b>${q}</b><button onclick="chg(${i.id},1)">+</button></div>`:`<button onclick="chg(${i.id},1)">Add</button>`)+`</div></div>`}).join("")+`</div>`});
 if(S.posts.length)h+=`<h2 id="posts">Recipes & News</h2>`+S.posts.map(x=>`<div class="card">${x.img&&IMGS[x.img]?`<img src="${IMGS[x.img]}" style="width:100%;max-height:240px;object-fit:cover;border-radius:10px;margin-bottom:8px">`:""}<h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></div>`).join("");
-h+=`</div><footer><b>${esc(st.name)}</b><br>${esc(st.address)}<br><a href="${esc(st.map)}" target="_blank" rel="noopener">Get directions</a><br>`+
-["instagram","tiktok","facebook"].filter(k=>st[k]).map(k=>`<a href="${esc(st[k])}" target="_blank" rel="noopener">${k[0].toUpperCase()+k.slice(1)}</a>`).join(" · ")+`</footer>`;
+h+=`${st.about?`<h2>About us</h2><div class="card"><p>${esc(st.about)}</p></div>`:""}</div><footer>${st.logo&&IMGS[st.logo]?`<img class="logo" src="${IMGS[st.logo]}" alt=""><br>`:""}<b style="color:var(--fg);font-size:17px">${esc(st.name)}</b><br>${esc(st.address)}<br>${esc(st.hours)}<br><a href="${esc(st.map)}" target="_blank" rel="noopener">Get directions</a> · <a href="https://wa.me/${esc((st.wa||"").replace(/\D/g,""))}" target="_blank" rel="noopener">WhatsApp</a><br>`+["instagram","tiktok","facebook"].filter(k=>st[k]).map(k=>`<a href="${esc(st[k])}" target="_blank" rel="noopener">${k[0].toUpperCase()+k.slice(1)}</a>`).join(" · ")+`</footer>`;
 if(count())h+=`<div class="cartbar"><button onclick="cartOpen=true;render()">View order · ${count()} items · ${money(total())}</button></div>`;
 h+=`<div class="adm">${isAdmin?`<button onclick="admin=true;render()">Admin</button>`:`<button class="g" onclick="loginOpen=true;render()">Staff</button>`}</div>`;
 if(cartOpen)h+=cartHtml();
@@ -95,7 +97,7 @@ function adminHtml(){
 const tb=["menu","offers","posts","settings"].map(t=>`<button class="${tab===t?"on":""}" onclick="tab='${t}';render()">${t[0].toUpperCase()+t.slice(1)}</button>`).join("");
 let b="";
 if(tab==="menu"){
-b=S.items.map((i,k)=>`<div class="ed"><div class="two"><div><label>Name</label><input value="${esc(i.name)}" oninput="S.items[${k}].name=this.value"></div><div><label>Price (${CUR})</label><input type="number" step="0.1" value="${i.price}" oninput="S.items[${k}].price=parseFloat(this.value)||0"></div></div>
+b=S.items.map((i,k)=>`<div class="ed"><div class="two"><div><label>Name</label><input value="${esc(i.name)}" oninput="S.items[${k}].name=this.value"></div><div><label>Price (${S.settings.cur||CUR})</label><input type="number" step="0.1" value="${i.price}" oninput="S.items[${k}].price=parseFloat(this.value)||0"></div></div>
 <div class="two"><div><label>Category</label><select onchange="S.items[${k}].cat=this.value">${S.cats.map(c=>`<option ${c===i.cat?"selected":""}>${esc(c)}</option>`).join("")}</select></div><div><label>Emoji</label><input value="${esc(i.emoji)}" oninput="S.items[${k}].emoji=this.value"></div></div>
 <label>Description</label><input value="${esc(i.desc)}" oninput="S.items[${k}].desc=this.value">${phHtml('items',k,480)}
 <div class="row" style="border:0"><label><input type="checkbox" style="width:auto" ${i.sold?"checked":""} onchange="S.items[${k}].sold=this.checked"> Sold out</label><button class="rm" onclick="rmObj('items',${k})">Delete</button></div></div>`).join("")+
@@ -104,14 +106,18 @@ b=S.items.map((i,k)=>`<div class="ed"><div class="two"><div><label>Name</label><
 if(tab==="offers"){
 b=`<label>Top banner (leave empty to hide)</label><input value="${esc(S.banner)}" oninput="S.banner=this.value">`+list("offers")}
 if(tab==="posts")b=list("posts");
-if(tab==="settings"){const f=(k,l)=>`<label>${l}</label><input value="${esc(S.settings[k])}" oninput="S.settings['${k}']=this.value">`;
-b=f("name","Cafe name")+f("tagline","Tagline")+f("wa","WhatsApp number (digits, with country code)")+f("address","Address")+f("hours","Opening hours text")+f("map","Google Maps link")+f("instagram","Instagram link")+f("tiktok","TikTok link")+f("facebook","Facebook link")}
+if(tab==="settings"){const f=(k,l,t)=>`<label>${l}</label><input ${t?`type="${t}"`:""} value="${esc(S.settings[k]??"")}" oninput="S.settings['${k}']=this.value">`;
+const c=(k,l,d)=>`<label>${l}</label><input type="color" style="height:46px;padding:3px" value="${S.settings[k]||d}" oninput="S.settings['${k}']=this.value;theme()">`;
+b=sph("logo","Logo (shows on top and footer)",320)+sph("hero","Top background photo",1200)+f("name","Cafe name")+f("tagline","Tagline")+`<label>About us</label><textarea rows="4" oninput="S.settings.about=this.value">${esc(S.settings.about||"")}</textarea>`+c("accent","Main color (buttons, prices)","#ffb300")+c("bg","Background color","#14110f")+f("wa","WhatsApp number (digits with country code)")+f("address","Address")+f("hours","Opening hours text (shown on site)")+`<label><input type="checkbox" style="width:auto" ${S.settings.showStatus!==false?"checked":""} onchange="S.settings.showStatus=this.checked"> Show Open / Closed badge</label>`+f("open","Opens at (hour, 0-23)","number")+f("close","Closes at (hour, 0-23)","number")+`<label>Closed day</label><select onchange="S.settings.off=+this.value">${["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"].map((d,k)=>`<option value="${k}" ${(S.settings.off===undefined?3:S.settings.off)===k?"selected":""}>${d}</option>`).join("")}<option value="-1" ${S.settings.off===-1?"selected":""}>None</option></select>`+f("cur","Currency symbol")+f("map","Google Maps link")+f("instagram","Instagram link")+f("tiktok","TikTok link")+f("facebook","Facebook link")}
 return `<div class="ov"><div class="sheet"><div class="row" style="border:0"><h2 style="margin:0">Admin</h2><span><button class="g" onclick="admin=false;render()">Close</button> <button class="g" onclick="fbOut()">Log out</button></span></div><div class="tabs">${tb}</div>${b}
 <button class="wa" style="margin-top:14px" onclick="save()">Save and publish to website</button></div></div>`}
 function list(k){return S[k].map((x,n)=>`<div class="ed"><label>Title</label><input value="${esc(x.title)}" oninput="S.${k}[${n}].title=this.value"><label>Text</label><textarea rows="4" oninput="S.${k}[${n}].text=this.value">${esc(x.text)}</textarea>${phHtml(k,n,900)}<div class="row" style="border:0">${k==="offers"?`<label><input type="checkbox" style="width:auto" ${x.on!==false?"checked":""} onchange="S.offers[${n}].on=this.checked"> Running (visible on website)</label>`:"<span></span>"}<button class="rm" onclick="rmObj('${k}',${n})">Delete</button></div></div>`).join("")+`<button onclick="S.${k}.unshift({title:'',text:'',on:true,img:''});render()">+ Add ${k==="offers"?"offer":"recipe / news"}</button>`}
-function compress(f,max){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height));const c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext("2d").drawImage(im,0,0,c.width,c.height);res(c.toDataURL("image/jpeg",.72))};im.onerror=rej;im.src=r.result};r.onerror=rej;r.readAsDataURL(f)})}
+function compress(f,max,png){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,max/Math.max(im.width,im.height));const c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext("2d").drawImage(im,0,0,c.width,c.height);res(c.toDataURL(png?"image/png":"image/jpeg",.72))};im.onerror=rej;im.src=r.result};r.onerror=rej;r.readAsDataURL(f)})}
 async function pick(a,k,inp,max){const f=inp.files[0];if(!f)return;try{const d=await compress(f,max);const o=S[a][k];if(o.img){DEL.push(o.img);delete PEND[o.img]}const id="i"+Date.now()+Math.floor(Math.random()*999);IMGS[id]=d;PEND[id]=d;o.img=id;render()}catch(e){alert("Could not read this photo")}}
 function noPhoto(a,k){const o=S[a][k];if(o.img){DEL.push(o.img);delete PEND[o.img];o.img=""}render()}
+function sph(key,label,max){const id=S.settings[key];return `<label>${label}</label><div class="row" style="border:0">${id&&IMGS[id]?`<img src="${IMGS[id]}" style="width:64px;height:64px;object-fit:cover;border-radius:10px">`:`<span style="color:var(--mut)">None</span>`}<span><input type="file" accept="image/*" style="width:auto" onchange="pickS('${key}',this,${max})">${id?`<button class="rm" onclick="noS('${key}')">Remove</button>`:""}</span></div>`}
+async function pickS(key,inp,max){const f=inp.files[0];if(!f)return;try{const d=await compress(f,max,key==="logo"&&f.type==="image/png");const o=S.settings;if(o[key]){DEL.push(o[key]);delete PEND[o[key]]}const id="i"+Date.now()+Math.floor(Math.random()*999);IMGS[id]=d;PEND[id]=d;o[key]=id;render()}catch(e){alert("Could not read this photo")}}
+function noS(key){const o=S.settings;if(o[key]){DEL.push(o[key]);delete PEND[o[key]];o[key]=""}render()}
 function rmObj(a,k){if(!confirm("Delete this?"))return;const o=S[a][k];if(o.img){DEL.push(o.img);delete PEND[o.img]}S[a].splice(k,1);render()}
 function phHtml(a,k,max){const o=S[a][k];return `<label>Photo</label><div class="row" style="border:0">${o.img&&IMGS[o.img]?`<img src="${IMGS[o.img]}" style="width:64px;height:64px;object-fit:cover;border-radius:10px">`:`<span style="color:var(--mut)">No photo</span>`}<span><input type="file" accept="image/*" style="width:auto" onchange="pick('${a}',${k},this,${max})">${o.img?`<button class="rm" onclick="noPhoto('${a}',${k})">Remove photo</button>`:""}</span></div>`}
 async function save(){try{await window.fbSave(S,PEND,DEL);PEND={};DEL=[];alert("Saved! Your website is updated.");admin=false;render()}catch(e){alert("Save failed: "+(e.message||e))}}
